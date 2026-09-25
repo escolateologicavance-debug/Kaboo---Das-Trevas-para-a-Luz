@@ -1,350 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaboo: Das Trevas para a Luz</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#d4a017">
-<link rel="icon" type="image/png" href="logo-192.png">
-<style>
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: #121218;
-color: #e0e0e8;
-line-height: 1.6;
-padding-bottom: 50px;
-}
-header {
-background: linear-gradient(135deg, #1a1a24 0%, #0d0d12 100%);
-border-bottom: 2px solid #d4a017;
-padding: 30px 20px;
-text-align: center;
-}
-header h1 {
-font-size: 2.2rem;
-color: #f5deb3;
-letter-spacing: 2px;
-margin-bottom: 5px;
-text-transform: uppercase;
-}
-header .author {
-font-size: 0.95rem;
-color: #d4a017;
-font-weight: bold;
-letter-spacing: 1px;
-}
-.container {
-max-width: 800px;
-margin: 30px auto;
-padding: 0 20px;
-}
-/* Estilo da Capa do Livro / Almanaque /
-.book-cover-section {
-background: #1a1a24;
-border: 2px solid #d4a017;
-border-radius: 12px;
-padding: 20px;
-text-align: center;
-margin-bottom: 40px;
-box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-}
-.book-cover-section img {
-max-width: 100%;
-height: auto;
-border-radius: 8px;
-border: 1px solid #3a3a4a;
-max-height: 450px;
-object-fit: cover;
-}
-.book-cover-section h2 {
-color: #f5deb3;
-margin-top: 15px;
-font-size: 1.5rem;
-}
-.book-cover-section p {
-color: #a0a0b0;
-font-style: italic;
-font-size: 0.95rem;
-margin-top: 5px;
-}
-/ Lista de Capítulos /
-.chapters-title {
-font-size: 1.4rem;
-color: #f5deb3;
-margin-bottom: 20px;
-border-left: 4px solid #d4a017;
-padding-left: 10px;
-text-transform: uppercase;
-letter-spacing: 1px;
-}
-.chapter-card {
-background: #1a1a24;
-border: 1px solid #2a2a3a;
-border-radius: 8px;
-padding: 20px;
-margin-bottom: 20px;
-cursor: pointer;
-transition: transform 0.2s ease, border-color 0.2s ease;
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-.chapter-card:hover {
-transform: translateY(-2px);
-border-color: #d4a017;
-}
-.chapter-info h3 {
-color: #f5deb3;
-font-size: 1.2rem;
-margin-bottom: 5px;
-}
-.chapter-info .badge {
-display: inline-block;
-background: #d4a017;
-color: #121218;
-font-size: 0.75rem;
-font-weight: bold;
-padding: 2px 8px;
-border-radius: 4px;
-margin-bottom: 8px;
-text-transform: uppercase;
-}
-.chapter-info p {
-color: #a0a0b0;
-font-size: 0.9rem;
-}
-.chapter-action {
-color: #d4a017;
-font-weight: bold;
-font-size: 0.9rem;
-white-space: nowrap;
-margin-left: 15px;
-}
-/ Janela Modal */
-.modal {
-display: none;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0,0,0,0.85);
-z-index: 1000;
-justify-content: center;
-align-items: center;
-padding: 20px;
-}
-.modal-content {
-background: #1a1a24;
-border: 2px solid #d4a017;
-border-radius: 12px;
-max-width: 600px;
-width: 100%;
-padding: 30px;
-position: relative;
-box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-max-height: 90vh;
-overflow-y: auto;
-}
-.close-btn {
-position: absolute;
-top: 15px;
-right: 20px;
-background: none;
-border: none;
-color: #f5deb3;
-font-size: 1.8rem;
-cursor: pointer;
-}
-.modal-badge {
-background: #d4a017;
-color: #121218;
-font-weight: bold;
-padding: 3px 10px;
-border-radius: 4px;
-font-size: 0.8rem;
-text-transform: uppercase;
-}
-.modal-content h2 {
-color: #f5deb3;
-font-size: 1.6rem;
-margin: 15px 0 10px 0;
-}
-.modal-location {
-color: #d4a017;
-font-size: 0.9rem;
-font-weight: bold;
-margin-bottom: 15px;
-}
-.modal-content p {
-color: #c0c0d0;
-margin-bottom: 15px;
-line-height: 1.7;
-}
-footer {
-text-align: center;
-margin-top: 50px;
-color: #707080;
-font-size: 0.85rem;
-border-top: 1px solid #2a2a3a;
-padding-top: 20px;
-}
-@media(max-width: 600px) {
-.chapter-card { flex-direction: column; align-items: flex-start; }
-.chapter-action { margin-left: 0; margin-top: 10px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KABOO - Das Trevas</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #d4af37;
+            --text-color: #e0e0e0;
+            --text-muted: #aaaaaa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            background-color: #0a0a0a;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin: 0 0 5px 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .author {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Estilo da Capa com tamanho normal e contido */
+        .cover-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 25px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            border: 1px solid #333;
+        }
+
+        .cover-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Navegação de Capítulos */
+        .chapters-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .chapter-btn {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .chapter-btn:hover, .chapter-btn.active {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Área de Exibição do Capítulo */
+        .chapter-content {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: none;
+            animation: fadeIn 0.5s ease;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 40px;
+        }
+
+        .chapter-content.active {
+            display: block;
+        }
+
+        .chapter-content h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .chapter-image {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid #444;
+        }
+
+        .chapter-text {
+            line-height: 1.6;
+            color: #dcdcdc;
+            font-size: 1.05rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-<h1>Kaboo</h1>
-<div class="author">Por Gilberto Moreira</div>
-</header>
+    <header>
+        <h1>KABOO</h1>
+        <p class="author">Por Gilberto Moreira</p>
+    </header>
 
-<div class="container">
-<!-- Capa do Livro / Almanaque -->
-<div class="book-cover-section">
-<img src="capa-kaboo.jpg" alt="Capa Kaboo: Das Trevas para a Luz">
-<h2>Das Trevas para a Luz</h2>
-<p>A incrível jornada verídica do príncipe africano que encontrou a liberdade suprema.</p>
-</div>
+    <div class="container">
+        <!-- Capita com tamanho normal controlado -->
+        <div class="cover-container">
+            <img src="capa.png" alt="Capa Kaboo Das Trevas" id="main-cover">
+        </div>
 
-<h3 class="chapters-title">Capítulos da Jornada</h3>
+        <!-- Designação dos Capítulos abaixo da imagem -->
+        <div class="chapters-nav">
+            <button class="chapter-btn active" onclick="showChapter(1)">Capítulo 1</button>
+            <button class="chapter-btn" onclick="showChapter(2)">Capítulo 2</button>
+            <button class="chapter-btn" onclick="showChapter(3)">Capítulo 3</button>
+            <button class="chapter-btn" onclick="showChapter(4)">Capítulo 4</button>
+            <button class="chapter-btn" onclick="showChapter(5)">Capítulo 5</button>
+        </div>
 
-<!-- Lista de Capítulos -->
-<div class="chapter-card" onclick="openModal('chap1')">
-<div class="chapter-info">
-<span class="badge">1873</span>
-<h3>Capítulo 1: O Nascimento do Príncipe</h3>
-<p>As origens na tribo Kru e a criação com honra e tradições ancestrais.</p>
-</div>
-<div class="chapter-action">Ler Capítulo →</div>
-</div>
+        <!-- Conteúdo Detalhado dos Capítulos -->
+        <div id="content-1" class="chapter-content active">
+            <h2>Capítulo 1: O Despertar na Sombra</h2>
+            <img src="img1.png" alt="Ilustração Capítulo 1" class="chapter-image">
+            <div class="chapter-text">
+                <p>As muralhas ancestrais de Kaboo pareciam respirar sob o manto de uma noite sem estrelas. O silêncio era espesso, cortado apenas pelo eco distante de passos furtivos que ecoavam pelas ruas de paralelepípedos escuros.</p>
+                <p>Neste cenário de apreensão, o protagonista desperta com uma sensação iminente de perigo. As sombras ao redor pareciam carregar memórias e sussurros de um passado que ele tentava esquecer, revelando que a calmaria aparente não passava de uma trégua frágil antes da tempestade que se aproximava.</p>
+            </div>
+        </div>
 
-<div class="chapter-card" onclick="openModal('chap2')">
-<div class="chapter-info">
-<span class="badge">Por volta de 1887</span>
-<h3>Capítulo 2: O Cativeiro e a Provação</h3>
-<p>A captura pela tribo rival Grebos e os dias de intensa resistência como refém.</p>
-</div>
-<div class="chapter-action">Ler Capítulo →</div>
-</div>
+        <div id="content-2" class="chapter-content">
+            <h2>Capítulo 2: Os Ecos do Passado</h2>
+            <img src="img2.png" alt="Ilustração Capítulo 2" class="chapter-image">
+            <div class="chapter-text">
+                <p>Aprofundando-se nas ruínas esquecidas da cidade velha, pistas cruciais começam a vir à tona. Cada objeto encontrado trazia fragmentos de uma verdade oculta sobre a origem das trevas que assolavam a região.</p>
+                <p>Confrontado com espectros de decisões antigas, o protagonista percebe que o conflito atual não é apenas físico, mas uma batalha profunda pela própria identidade e sobrevivência espiritual em meio ao caos.</p>
+            </div>
+        </div>
 
-<div class="chapter-card" onclick="openModal('chap3')">
-<div class="chapter-info">
-<span class="badge">Noite Decisiva</span>
-<h3>Capítulo 3: A Visão da Luz Celestial</h3>
-<p>O momento sobrenatural em que as correntes caem e a luz liberta o jovem.</p>
-</div>
-<div class="chapter-action">Ler Capítulo →</div>
-</div>
+        <div id="content-3" class="chapter-content">
+            <h2>Capítulo 3: A Aliança Improvável</h2>
+            <img src="img3.png" alt="Ilustração Capítulo 3" class="chapter-image">
+            <div class="chapter-text">
+                <p>Quando a esperança parecia minguar nas fronteiras do território inimigo, figuras inesperadas cruzam o caminho. Indivíduos marcados pelas mesmas cicatrizes do destino decidem unir forças.</p>
+                <p>Essa união traz novas estratégias e uma centelha de coragem necessária para enfrentar os perigos iminentes. Juntos, eles compreendem que a divisão só favorece as forças das trevas que os perseguem incansavelmente.</p>
+            </div>
+        </div>
 
-<div class="chapter-card" onclick="openModal('chap4')">
-<div class="chapter-info">
-<span class="badge">1888 - 1889</span>
-<h3>Capítulo 4: Refúgio e Chegada à Missão</h3>
-<p>A fuga pela selva, a chegada a Monrovia e o primeiro contato com a Palavra.</p>
-</div>
-<div class="chapter-action">Ler Capítulo →</div>
-</div>
+        <div id="content-4" class="chapter-content">
+            <h2>Capítulo 4: O Labirinto das Provações</h2>
+            <img src="img4.png" alt="Ilustração Capítulo 4" class="chapter-image">
+            <div class="chapter-text">
+                <p>O teste supremo aguardava no coração do labirinto subterrâneo. Corredores estreitos e armadilhas psicológicas testavam os limites da resiliência e da fé de cada membro do grupo.</p>
+                <p>Neste ambiente claustrofóbico, escolhas difíceis precisaram ser feitas rapidamente. Cada obstáculo superado exigia sacrifício e uma confiança mútua inabalável para não sucumbir à desesperança total.</p>
+            </div>
+        </div>
 
-<div class="chapter-card" onclick="openModal('chap5')">
-<div class="chapter-info">
-<span class="badge">Conversão e Batismo</span>
-<h3>Capítulo 5: O Nascimento de Samuel Morris</h3>
-<p>A entrega total a Cristo, o batismo e o início do legado mundial.</p>
-</div>
-<div class="chapter-action">Ler Capítulo →</div>
-</div>
-</div>
+        <div id="content-5" class="chapter-content">
+            <h2>Capítulo 5: O Amanhecer de Kaboo</h2>
+            <img src="img5.png" alt="Ilustração Capítulo 5" class="chapter-image">
+            <div class="chapter-text">
+                <p>A batalha final irrompeu sob os primeiros e tímidos raios de sol que rasgavam o horizonte escurecido. O confronto decisivo colocou à prova toda a jornada percorrida até ali.</p>
+                <p>Com bravura e determinação inegociável, as amarras das trevas foram finalmente rompidas, permitindo que um novo horizonte se abrisse para Kaboo e seu povo, marcando o início de uma era de reconstrução e paz.</p>
+            </div>
+        </div>
 
-<!-- Modais dos Capítulos -->
-<div id="chap1" class="modal">
-<div class="modal-content">
-<button class="close-btn" onclick="closeModal('chap1')">×</button>
-<span class="modal-badge">1873</span>
-<h2>O Nascimento do Príncipe</h2>
-<div class="modal-location">📍 Libéria (África Ocidental)</div>
-<p>Nascido na região da Libéria, Kaboo era o filho mais velho de um respeitado chefe da tribo Kru. Cresceu imerso nas tradições de seu povo, aprendendo valores de liderança, coragem e honra que moldariam seu caráter firme e destemido desde a juventude.</p>
-<button class="chapter-action" style="background:none; border:none; cursor:pointer;" onclick="closeModal('chap1')">Fechar ✖</button>
-</div>
-</div>
+    </div>
 
-<div id="chap2" class="modal">
-<div class="modal-content">
-<button class="close-btn" onclick="closeModal('chap2')">×</button>
-<span class="modal-badge">Por volta de 1887</span>
-<h2>O Cativeiro e a Provação</h2>
-<div class="modal-location">📍 Território dos Grebos, Libéria</div>
-<p>Durante conflitos territoriais na região, Kaboo foi capturado por uma tribo rival, os Grebos. Utilizado como refém para barganha de tributos, ele enfrentou duras provações e ameaças severas de execução quando as negociações de sua tribo falharam, mantendo-se sempre altivo e forte.</p>
-<button class="chapter-action" style="background:none; border:none; cursor:pointer;" onclick="closeModal('chap2')">Fechar ✖</button>
-</div>
-</div>
+    <script>
+        function showChapter(chapterNumber) {
+            // Oculta todos os conteúdos de capítulos
+            const contents = document.querySelectorAll('.chapter-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
 
-<div id="chap3" class="modal">
-<div class="modal-content">
-<button class="close-btn" onclick="closeModal('chap3')">×</button>
-<span class="modal-badge">Noite Decisiva</span>
-<h2>A Visão da Luz Celestial</h2>
-<div class="modal-location">📍 Cativeiro Tribal</div>
-<p>Na iminência da execução e em meio à total escuridão do cativeiro, uma luz brilhante e indescritível preencheu o ambiente. Em um evento milagroso, as amarras que o prendiam cederam e uma voz firme guiou seus passos para a rota da fuga imediata pela selva.</p>
-<button class="chapter-action" style="background:none; border:none; cursor:pointer;" onclick="closeModal('chap3')">Fechar ✖</button>
-</div>
-</div>
+            // Remove a classe active de todos os botões
+            const buttons = document.querySelectorAll('.chapter-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
 
-<div id="chap4" class="modal">
-<div class="modal-content">
-<button class="close-btn" onclick="closeModal('chap4')">×</button>
-<span class="modal-badge">1888 - 1889</span>
-<h2>Refúgio e Chegada à Missão</h2>
-<div class="modal-location">📍 Monrovia, Libéria</div>
-<p>Após dias de travessia solitária pela selva densa, sobrevivendo de recursos naturais, Kaboo alcançou a capital Monrovia. Trabalhando em plantações de café para se sustentar, cruzou o caminho de missionários protestantes que mudariam o rumo de sua história.</p>
-<button class="chapter-action" style="background:none; border:none; cursor:pointer;" onclick="closeModal('chap4')">Fechar ✖</button>
-</div>
-</div>
+            // Exibe o capítulo selecionado e ativa o botão correspondente
+            document.getElementById(`content-${chapterNumber}`).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 
-<div id="chap5" class="modal">
-<div class="modal-content">
-<button class="close-btn" onclick="closeModal('chap5')">×</button>
-<span class="modal-badge">Conversão e Batismo</span>
-<h2>O Nascimento de Samuel Morris</h2>
-<div class="modal-location">📍 Base Missionária, Libéria / Estados Unidos</div>
-<p>Ouvindo sobre a conversão do apóstolo Paulo e a luz no caminho de Damasco, Kaboo reconheceu o autor do milagre que o salvara. Ao entregar sua vida a Cristo e se batizar, assumiu o nome de Samuel Morris, marcando o início de uma trajetória internacional de fé profunda.</p>
-<button class="chapter-action" style="background:none; border:none; cursor:pointer;" onclick="closeModal('chap5')">Fechar ✖</button>
-</div>
-</div>
-
-<footer>
-<p>© 2026 Gilberto Moreira. Todos os direitos reservados. PWA Offline.</p>
-</footer>
-
-<script>
-function openModal(id) {
-document.getElementById(id).style.display = 'flex';
-}
-function closeModal(id) {
-document.getElementById(id).style.display = 'none';
-}
-window.onclick = function(event) {
-if (event.target.classList.contains('modal')) {
-event.target.style.display = 'none';
-}
-}
-
-if ('serviceWorker' in navigator) {
-window.addEventListener('load', () => {
-navigator.serviceWorker.register('./sw.js')
-.then((reg) => console.log('Service Worker registrado:', reg.scope))
-.catch((err) => console.log('Erro SW:', err));
-});
-}
-</script>
 </body>
 </html>
