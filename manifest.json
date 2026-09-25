@@ -1,0 +1,20 @@
+{
+"name": "Kaboo: Das Trevas para a Luz",
+"short_name": "Kaboo",
+"start_url": "index.html",
+"display": "standalone",
+"background_color": "#1a1a24",
+"theme_color": "#d4a017",
+"icons": [
+{
+"src": "logo-192.png",
+"sizes": "192x192",
+"type": "image/png"
+},
+{
+"src": "logo-512.png",
+"sizes": "512x512",
+"type": "image/png"
+}
+ ]
+}
